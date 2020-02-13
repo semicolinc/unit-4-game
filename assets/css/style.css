@@ -1,0 +1,55 @@
+/* font-family: 'Rubik Mono One', sans-serif;
+font-family: 'Rubik', sans-serif; */
+body{
+    background-image: url("../images/background.png");
+    /* backdrop-filter: grayscale(90%); */
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+#title{
+    margin: 15px auto;
+    display: block;
+    font-size: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #FFCC03;
+    -webkit-text-stroke-width: .3vw;
+    -webkit-text-stroke-color: #1F4079;
+    overflow: hidden;
+}
+.container img{
+    margin: 15px auto;
+    display: inline-flex;
+    height: 15vw;
+}
+
+.container #charmander:hover{
+    border: .1vw black solid;
+    border-radius: 50%;
+    background-image: linear-gradient(#E3453D, #FCA767);
+}
+
+.container #bulbasaur:hover{
+    border: .1vw black solid;
+    border-radius: 50%;
+    background-image: linear-gradient(#56921F, #68A198);
+}
+
+.container #squirtle:hover{
+    border: .1vw black solid;
+    border-radius: 50%;
+    background-image: linear-gradient(#84CABF, #B4B6B7);
+}
+
+.container #pikachu:hover{
+    border: .1vw black solid;
+    border-radius: 50%;
+    background-image: linear-gradient(#FFF200, #9A0133);
+}
