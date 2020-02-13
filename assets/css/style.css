@@ -30,25 +30,30 @@ body{
     height: 15vw;
 }
 
-.container #charmander:hover{
+#charmander{order:3;}
+#bulbasaur{order:1;}
+#squirtle{order:2;}
+#pikachu{order:4;}
+
+.container .red:hover{
     border: .1vw black solid;
     background-image: linear-gradient(#E3453D, #FCA767);
     height: 18vw;
 }
 
-.container #bulbasaur:hover{
+.container .green:hover{
     border: .1vw black solid;
     background-image: linear-gradient(#56921F, #68A198);
     height: 18vw;
 }
 
-.container #squirtle:hover{
+.container .blue:hover{
     border: .1vw black solid;
     background-image: linear-gradient(#84CABF, #B4B6B7);
     height: 18vw;
 }
 
-.container #pikachu:hover{
+.container .yellow:hover{
     border: .1vw black solid;
     background-image: linear-gradient(#FFF200, #9A0133);
     height: 18vw;
