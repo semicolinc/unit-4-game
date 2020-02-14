@@ -1,58 +1,131 @@
 $(document).ready(function(){
 
+    var Nickname = "";
+    var Level = 1;
+    var Type = "";
+    var Health = 100;
+    var DPS = 10;
+    var statList = ["Nickname: " + Nickname, "Level: " + Level, "Type: " + Type, "Health: " + Health,"DPS: " + DPS];
+    var newDiv = $("#list");
+
+    function showStats(){
+        $(newDiv).empty();
+        for(var i = 0; i < statList.length; i++){
+            var newElement = $("<div>");
+            newElement.html(statList[i]);
+            newDiv.append(newElement);
+        }
+    }
+    function updateStats(){
+        statList = ["Nickname: " + Nickname, "Level: " + Level, "Type: " + Type, "Health: " + Health,"DPS: " + DPS];
+    }
+    function playMusic(){
+        var music = new Audio("assets/audio/battle.mp3");
+        music.loop = true;
+        music.play();
+    }
+
     $(".character").on("click", function(event){
         var initial_char = $(this).attr("id");
 
         if (initial_char === "bulbasaur"){
             //make other elements disappear
-            $("#squirtle").css("visibility", "hidden");
-            $("#charmander").css("visibility", "hidden");
-            $("#pikachu").css("visibility", "hidden");
+            $("#squirtle, #charmander, #pikachu").css("display", "none");
 
-            $("bulbasaur").css("order:", "1");
             $(this).removeClass("green"); //remove this class to prevent hover
-            // var nick = prompt("Input the nickname for Bulbasaur:")
+            
+            Nickname = prompt("Input the nickname for Bulbasaur:", "Bulbasaur");
+            if (Nickname == null){
+                Nickname = "Bulbasaur";
+            }
+
+            Type = "Grass";
+            $("#title").css("display", "none");
+            $("#title2").css("display", "block");
+
+            //appending statList to Pokemon
+            $("#list").css("display", "flex");
+
+            updateStats();
+            showStats();
+            
+            //Allow user to choose which pokemon to fight first
+            playMusic();
 
         }
         else if (initial_char === "squirtle"){
             //make other elements disappear
-            $("#charmander").css("visibility", "hidden");
-            $("#bulbasaur").css("visibility", "hidden");
-            $("#pikachu").css("visibility", "hidden");
+            $("#charmander, #bulbasaur, #pikachu").css("display", "none");
             
-            $("#squirtle").css("order", "1");
-            $("#bulbasaur").css("order", "2");
-            $("#charmander").css("order", "3");
-            $("#pikachu").css("order", "4");
             $(this).removeClass("blue");
-            // var nick = prompt("Input the nickname for Bulbasaur:")
 
+            Nickname = prompt("Input the nickname for Squirtle:", "Squirtle");
+            if (Nickname == null){
+                Nickname = "Squirtle";
+            }
+            Type = "Water";
+
+            $("#title").css("display", "none");
+            $("#title2").css("display", "block");
+            
+            //appending statList to Pokemon
+            $("#list").css("display", "flex");
+
+            updateStats();
+            showStats();
+            
+            //Allow user to choose which pokemon to fight first
+            playMusic();
+            
         }
         else if (initial_char === "charmander"){
             //make other elements disappear
-            $("#squirtle").css("visibility", "hidden");
-            $("#bulbasaur").css("visibility", "hidden");
-            $("#pikachu").css("visibility", "hidden");
+            $("#squirtle, #bulbasaur, #pikachu").css("display", "none");
 
-            $("#squirtle").css("order", "2");
-            $("#bulbasaur").css("order", "3");
-            $("#charmander").css("order", "1");
-            $("#pikachu").css("order", "4");
             $(this).removeClass("red");
-            // var nick = prompt("Input the nickname for Bulbasaur:")
+
+            Nickname = prompt("Input the nickname for Charmander:", "Charmander");
+            if (Nickname == null){
+                Nickname = "Charmander";
+            }
+            Type = "Fire";
+
+            $("#title").css("display", "none");
+            $("#title2").css("display", "block");
+
+            //appending statList to Pokemon
+            $("#list").css("display", "flex");
+
+            updateStats();
+            showStats();
+            
+            //Allow user to choose which pokemon to fight first
+            playMusic();
         }
         else {
             //make other elements disappear
-            $("#squirtle").css("visibility", "hidden");
-            $("#charmander").css("visibility", "hidden");
-            $("#pikachu").css("visibility", "hidden");
+            $("#squirtle, #charmander, #bulbasaur").css("display", "none");
 
-            $("#squirtle").css("order", "2");
-            $("#bulbasaur").css("order", "3");
-            $("#charmander").css("order", "4");
-            $("#pikachu").css("order", "1");
             $(this).removeClass("yellow");
-            // var nick = prompt("Input the nickname for Bulbasaur:")
+
+            Nickname = prompt("Input the nickname for Pikachu:", "Pikachu");
+            if (Nickname == null){
+                Nickname = "Pikachu";
+            }
+            Type = "Electric";
+            
+            $("#title").css("display", "none");
+            $("#title2").css("display", "block");
+
+            //appending statList to Pokemon
+            $("#list").css("display", "flex");
+
+            updateStats();
+            showStats();
+            
+            //Allow user to choose which pokemon to fight first
+            playMusic();
+
         }
     })
 

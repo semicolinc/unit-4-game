@@ -10,6 +10,14 @@ body{
     justify-content: center;
     overflow: auto;
 }
+
+.title-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    flex-direction: column;
+}
 #title{
     margin: 15px auto;
     display: block;
@@ -24,37 +32,68 @@ body{
     -webkit-text-stroke-color: #1F4079;
     overflow: hidden;
 }
+
+#title2{
+    margin: 15px auto;
+    display: block;
+    font-size: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #FFCC03;
+    -webkit-text-stroke-width: .4vw;
+    -webkit-text-stroke-color: #1F4079;
+    overflow: hidden;
+    display: none;
+}
+
 .container img{
     margin: 15px auto;
     display: inline-flex;
     height: 15vw;
 }
 
-#charmander{order:3;}
-#bulbasaur{order:1;}
-#squirtle{order:2;}
-#pikachu{order:4;}
+#list{
+    display: flex;
+    margin: 15px auto;
+    flex-direction: column;
+    justify-content: left;
+    height: 15vw;
+    width: 60vw;
+    display: none;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.8vw;
+    font-weight: 400;
+    -webkit-text-stroke-width: .015vw;
+    -webkit-text-stroke-color: lightgray;
+}
 
 .container .red:hover{
     border: .1vw black solid;
     background-image: linear-gradient(#E3453D, #FCA767);
     height: 18vw;
+    border-radius: 5%;
 }
 
 .container .green:hover{
     border: .1vw black solid;
     background-image: linear-gradient(#56921F, #68A198);
     height: 18vw;
+    border-radius: 5%;
 }
 
 .container .blue:hover{
     border: .1vw black solid;
     background-image: linear-gradient(#84CABF, #B4B6B7);
     height: 18vw;
+    border-radius: 5%;
 }
 
 .container .yellow:hover{
     border: .1vw black solid;
     background-image: linear-gradient(#FFF200, #9A0133);
+    border-radius: 5%;
     height: 18vw;
 }

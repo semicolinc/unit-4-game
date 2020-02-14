@@ -12,14 +12,35 @@
     </head>
 
     <body>
-        <p id = "title">Choose Your Starter</p>
+        <div class = "title-container">
+            <p id = "title">Choose Your Starter</p>
+            <p id = "title2">A Pokemon Battle Has Begun!</p>
+        </div>
 
         <div class = "container">
-            <img class = "character green" id = "bulbasaur" src = "assets/images/bulbasaur.png"> 
+            <img class = "character green" id = "bulbasaur" src = "assets/images/bulbasaur.png">
             <img class = "character blue" id = "squirtle" src = "assets/images/squirtle.png"/>
             <img class = "character red" id = "charmander" src = "assets/images/charmander.png"/>
             <img class = "character yellow" id = "pikachu" src = "assets/images/pikachu.png"/>
+            <div id = "list"></div>
+
+            <!-- <div class = "wrapper">
+                <button id = "grass">Bulbasaur</button> 
+                <button id = "water">Squirtle</button> 
+                <button id = "grass">Charmander</button> 
+                <button id = "grass">Pikachu</button> 
+            </div>
+            <button id = "attack">Attack</button> -->
+
+            <!-- It's either the wrapper div or the attack button. the wrapper is shown first to let the user choose who to fight, and then it disappears and is replaced with the attack button. -->
+
         </div>
+
+        <!-- The enemy container -->
+        <!-- <div class = "container"> 
+
+        </div> -->
+        
         <script src = "assets/javascript/game.js"></script>
     </body>
 </html>
