@@ -33,7 +33,7 @@ body{
     overflow: hidden;
 }
 
-#title2{
+#title2, #title3, #title4, #title5{
     margin: 15px auto;
     display: block;
     font-size: 4vw;
@@ -147,28 +147,37 @@ img.character{
 }
 
 #attackBox{
-    display: flex;
+    position: relative;
     margin: 15px auto;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: auto;
+    align-items: left bottom;
     overflow: auto;
     height: 15vw;
     width: 37vw;
     display: none;
     flex-wrap: wrap;
+    border: .5vw black solid;
+    background-color: white;
+    font-family: courier, sans-serif;
+    font-size: 1.5vw;
+    font-weight: 200;
+    color: rgba(22, 22, 22, 0.856);
 }
 
 #attack{
     display: flex;
-    margin: 15px auto;
-    flex-direction: column;
-    justify-content: left;
-    height: 15vw;
-    width: 60vw;
+    position: fixed;
+    z-index: 1;
+    height: auto;
+    width: auto;
+    padding: 1vw;
+    right: .5vw;
+    bottom: .5vw;
     display: none;
-    font-family: 'Rubik', sans-serif;
-    font-size: 2.8vw;
-    font-weight: 400;
-    -webkit-text-stroke-width: .015vw;
-    -webkit-text-stroke-color: lightgray;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 2vw;
+    font-weight: 200;
+    color: #1F4079;
+    border: .2vw black solid;
+    background-color:#FFCC03;
 }

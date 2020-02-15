@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function main(){
 
     var Nickname = "";
     var Level = 1;
@@ -15,6 +15,15 @@ $(document).ready(function(){
     var statList2 = ["Name: " + Nickname2, "Level: " + Level2, "Type: " + Type2, "Health: " + Health2,"DPS: " + DPS2];
     var newDiv = $("#list");
     var newDiv2 = $("#list2");
+    var attackDiv = $("#attackBox");
+    var youDamage = 0;
+    var enemyDamage = 0;
+    var youEffective = 0;
+    var enemyEffective = 0;
+    var typeString = "";
+    var etypeString = "";
+    var attackString = Nickname+" used "+ typeString +". "+"It was "+youEffective+" effective. "+ Nickname + " did "+ youDamage + " damage.";
+    var enemyAttackString = Nickname2+" used "+ etypeString +". "+"It was "+enemyEffective+" effective. "+ Nickname2 + " did "+ enemyDamage + " damage.";
 
     function showStats(type){
         if (type == "statList"){
@@ -37,9 +46,11 @@ $(document).ready(function(){
     function updateStats(type){
         if (type == "statList"){
             statList = ["Name: " + Nickname, "Level: " + Level, "Type: " + Type, "Health: " + Health,"DPS: " + DPS];
+            attackString = Nickname+" used "+ typeString +". "+"It was "+youEffective+" effective. "+ Nickname + " did "+ youDamage + " damage.";
         }
         if (type == "statList2"){
             statList2 = ["Name: " + Nickname2, "Level: " + Level2, "Type: " + Type2, "Health: " + Health2,"DPS: " + DPS2];
+            enemyAttackString = Nickname2+" used "+ etypeString +". "+"It was "+enemyEffective+" effective. "+ Nickname2 + " did "+ enemyDamage + " damage.";
         }
     }
 
@@ -47,6 +58,36 @@ $(document).ready(function(){
         var music = new Audio("assets/audio/battle.mp3");
         music.loop = true;
         music.play();
+    }
+
+    function damage(Type, Type2){
+
+        if ((Type === "Grass" && Type2 === "Water")||(Type === "Water" && Type2 === "Fire") || (Type === "Fire" && Type2 === "Grass") || (Type === "Electric" && Type2 === "Water")){
+            youDamage = 2*DPS;
+            youEffective = "super";
+        }
+        else if ((Type === "Water" && Type2 === "Grass")||(Type === "Fire" && Type2 === "Water") || (Type === "Grass" && Type2 === "Fire") || (Type === "Electric" && Type2 === "Grass")){
+            youDamage = .5*DPS;
+            youEffective = "not very";
+        }
+        else{
+            youDamage = DPS;
+            youEffective = "normally";
+        }
+
+        if ((Type2 === "Grass" && Type === "Water")||(Type2 === "Water" && Type === "Fire") || (Type2 === "Fire" && Type === "Grass") || (Type2 === "Electric" && Type === "Water")){
+            enemyDamage = 2*DPS2
+            enemyEffective = "super";
+        }
+        else if ((Type2 === "Water" && Type === "Grass")||(Type2 === "Fire" && Type === "Water") || (Type2 === "Grass" && Type === "Fire") || (Type2 === "Electric" && Type === "Grass")){
+            enemyDamage = .5*DPS2;
+            enemyEffective = "not very";
+        }
+        else{
+            enemyDamage = DPS2;
+            enemyEffective = "normally";
+        }
+        
     }
 
     $(".character.animation").one("click", function(){
@@ -161,32 +202,228 @@ $(document).ready(function(){
     })
 
     $(".nextPokemon.green").on("click", function(){
-        $("#chosenPokemon").empty();
-        $("#chosenPokemon").prepend('<img class = "character" src="assets/images/bulbasaur.png"/>');
-        
-        Nickname2 = ["Destroyer of Worlds", "Your Nightmare", "<3", "PitA", "A Pun", "Elemental", "Joey", "Papa", "xX_Hi_Xx", "Whynaut"][Math.floor(Math.random() * 10)]
-        Level2 = 1;
-        Type2 = "Grass";
-        Health2 = "75";
-        DPS2 = "10";
-        console.log(Nickname2);
+        if($(this).hasClass("canPress")){
+            $("#chosenPokemon").empty();
+            $("#chosenPokemon").prepend('<img class = "character" src="assets/images/bulbasaur.png"/>');
+            $(".green.available").removeClass("available").addClass("notAvailable");
+            
+            Nickname2 = ["Destroyer", "Your Nightmare", "<3", "Pity", "A Pun", "Elemental", "Joey", "Dad", "Friend A", "Broken", "Hacker"][Math.floor(Math.random() * 10)]
+            Level2 = 1;
+            Type2 = "Grass";
+            Health2 = "75";
+            DPS2 = "10";
 
-        $("#list2").css("display", "flex");
-        updateStats("statList2");
-        showStats("statList2");
-
-        $("#attackBox").css("display", "flex");
+            if(!($("#pokemon-div").children().hasClass("available"))){
+                Level2 = 5;
+                Type2 = "Grass";
+                Health2 = "100";
+                DPS2 = "20";
+            }
+    
+            $("#list2").css("display", "flex");
+            updateStats("statList2");
+            showStats("statList2");
+    
+            $("#attackBox").css("display", "flex");
+            $("#attack").css("display", "flex");
+    
+            $(".nextPokemon.available.canPress").removeClass("canPress");
+            $("#attack").addClass("canPress");
+        }
     })
 
-    $("nextPokemon blue").one("click", function(){
+    $(".nextPokemon.blue").on("click", function(){
+        if($(this).hasClass("canPress")){
+            $("#chosenPokemon").empty();
+            $("#chosenPokemon").prepend('<img class = "character" src="assets/images/squirtle.png"/>');
+            $(".blue.available").removeClass("available").addClass("notAvailable");
+            
+            Nickname2 = ["Destroyer", "Your Nightmare", "<3", "Pity", "A Pun", "Elemental", "Joey", "Dad", "Friend A", "Broken", "Hacker"][Math.floor(Math.random() * 10)]
+            Level2 = 1;
+            Type2 = "Water";
+            Health2 = "75";
+            DPS2 = "10";
 
+            if(!($("#pokemon-div").children().hasClass("available"))){
+                Level2 = 5;
+                Type2 = "Grass";
+                Health2 = "100";
+                DPS2 = "20";
+            }
+    
+            $("#list2").css("display", "flex");
+            updateStats("statList2");
+            showStats("statList2");
+    
+            $("#attackBox").css("display", "flex");
+            $("#attack").css("display", "flex");
+    
+            $(".nextPokemon.available.canPress").removeClass("canPress");
+            $("#attack").addClass("canPress");
+        }
     })
 
-    $("nextPokemon red").one("click", function(){
+    $(".nextPokemon.red").on("click", function(){
+        if($(this).hasClass("canPress")){
+            $("#chosenPokemon").empty();
+            $("#chosenPokemon").prepend('<img class = "character" src="assets/images/charmander.png"/>');
+            $(".red.available").removeClass("available").addClass("notAvailable");
+            
+            Nickname2 = ["Destroyer", "Your Nightmare", "<3", "Pity", "A Pun", "Elemental", "Joey", "Dad", "Friend A", "Broken", "Hacker"][Math.floor(Math.random() * 10)]
+            Level2 = 1;
+            Type2 = "Fire";
+            Health2 = "75";
+            DPS2 = "10";
+    
+            if(!($("#pokemon-div").children().hasClass("available"))){
+                Level2 = 5;
+                Type2 = "Fire";
+                Health2 = "100";
+                DPS2 = "20";
+            }
 
+            $("#list2").css("display", "flex");
+            updateStats("statList2");
+            showStats("statList2");
+    
+            $("#attackBox").css("display", "flex");
+            $("#attack").css("display", "flex");
+    
+            $(".nextPokemon.available.canPress").removeClass("canPress");
+            $("#attack").addClass("canPress");
+        }
     })
     
-    $("nextPokemon yellow").one("click", function(){
+    $(".nextPokemon.yellow").click(function(){
+        if($(this).hasClass("canPress")){
+            $("#chosenPokemon").empty();
+            $("#chosenPokemon").prepend('<img class = "character" src="assets/images/pikachu.png"/>');
+            $(".yellow.available").removeClass("available").addClass("notAvailable");
+            
+            Nickname2 = ["Destroyer", "Your Nightmare", "<3", "Pity", "A Pun", "Elemental", "Joey", "Dad", "Friend A", "Broken", "Hacker"][Math.floor(Math.random() * 10)]
+            Level2 = 1;
+            Type2 = "Electric";
+            Health2 = "75";
+            DPS2 = "10";
 
+            if(!($("#pokemon-div").children().hasClass("available"))){
+                Level2 = 5;
+                Type2 = "Electric";
+                Health2 = "100";
+                DPS2 = "20";
+            }
+    
+            $("#list2").css("display", "flex");
+            updateStats("statList2");
+            showStats("statList2");
+    
+            $("#attackBox").css("display", "flex");
+            $("#attack").css("display", "flex");
+    
+            $(".nextPokemon.available.canPress").removeClass("canPress");
+            $("#attack").addClass("canPress");
+        }
+    })
+
+    $("#attack").on("click", function(){
+        if($(this).hasClass("canPress")){
+            damage(Type,Type2);
+            Health = Health - enemyDamage;
+            Health2 = Health2 - youDamage;
+            Level++;
+            DPS = DPS + 4;
+
+            //attackBox input
+            var youAttack= $("<div>");
+            var enemyAttack = $("<div>");
+            if(Type === "Grass"){
+                typeString = "Vine Whip";
+            }
+            else if(Type === "Water"){
+                typeString = "Water Gun";
+            }
+            else if(Type === "Fire"){
+                typeString = "Ember";
+            }
+            else{
+                typeString = "Thundershock";
+            }
+            if(Type2 === "Grass"){
+                etypeString = "Vine Whip";
+            }
+            else if(Type2 === "Water"){
+                etypeString = "Water Gun";
+            }
+            else if(Type2 === "Fire"){
+                etypeString = "Ember";
+            }
+            else{
+                etypeString = "Thundershock";
+            }
+            updateStats("statList");
+            updateStats("statList2");
+
+            youAttack.html(attackString);
+            enemyAttack.html(enemyAttackString);
+            attackDiv.append(youAttack); 
+            attackDiv.append(enemyAttack); 
+
+            if(Health <= 0 && Health2 <= 0){
+                $("#title2").css("display", "none");
+                $("#title5").css("display", "block");
+                Health = 0;
+                Health2 = 0;
+                Level--;
+                DPS = DPS - 2;
+                updateStats("statList");
+                updateStats("statList2");
+                showStats("statList");
+                showStats("statList2");
+    
+                alert("The game has resulted in a tie! Refresh to play again.")
+                return;
+            }
+            else if(Health <= 0){
+                $("#title2").css("display", "none");
+                $("#title4").css("display", "block");
+                Health = 0;
+                Level--;
+                DPS = DPS - 2;
+                updateStats("statList");
+                showStats("statList");
+    
+                alert("You have lost! Refresh to play again.")
+                return;
+            }
+            
+            else if(Health2 <= 0 && Level2 === 5){
+                $("#title2").css("display", "none");
+                $("#title3").css("display", "block");
+                Health2 = 0;
+                updateStats("statList");
+                updateStats("statList2");
+                showStats("statList");
+                showStats("statList2");;
+    
+                alert("Congratulations! You are the champion! Refresh to play again.")
+                return;
+            }
+            else if(Health2 <= 0){
+                Health = 120;
+                Health2 = 0;
+                updateStats("statList");
+                updateStats("statList2");
+                showStats("statList");
+                showStats("statList2");
+                
+                $(".nextPokemon.available").addClass("canPress");
+                $("#attack").removeClass("canPress");
+            }
+    
+            updateStats("statList");
+            showStats("statList");
+            updateStats("statList2");
+            showStats("statList2");
+        }
     })
 })
