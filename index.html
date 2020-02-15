@@ -18,28 +18,33 @@
         </div>
 
         <div class = "container">
-            <img class = "character green" id = "bulbasaur" src = "assets/images/bulbasaur.png">
-            <img class = "character blue" id = "squirtle" src = "assets/images/squirtle.png"/>
-            <img class = "character red" id = "charmander" src = "assets/images/charmander.png"/>
-            <img class = "character yellow" id = "pikachu" src = "assets/images/pikachu.png"/>
+            <img class = "character green animation" id = "bulbasaur" src = "assets/images/bulbasaur.png">
+            <img class = "character blue animation" id = "squirtle" src = "assets/images/squirtle.png"/>
+            <img class = "character red animation" id = "charmander" src = "assets/images/charmander.png"/>
+            <img class = "character yellow animation" id = "pikachu" src = "assets/images/pikachu.png"/>
             <div id = "list"></div>
 
-            <!-- <div class = "wrapper">
-                <button id = "grass">Bulbasaur</button> 
-                <button id = "water">Squirtle</button> 
-                <button id = "grass">Charmander</button> 
-                <button id = "grass">Pikachu</button> 
-            </div>
-            <button id = "attack">Attack</button> -->
-
             <!-- It's either the wrapper div or the attack button. the wrapper is shown first to let the user choose who to fight, and then it disappears and is replaced with the attack button. -->
+
+            <div id = "pokemon-div">
+                <img class = "nextPokemon green available" src = "assets/images/bulbasaur.png">
+                <img class = "nextPokemon blue available" src = "assets/images/squirtle.png">
+                <img class = "nextPokemon red available" src = "assets/images/charmander.png">
+                <img class = "nextPokemon yellow available" src = "assets/images/pikachu.png">
+                <p class = "subTitle">Enemies</p>
+            </div>
+            <button id = "attack">Attack</button>
 
         </div>
 
         <!-- The enemy container -->
-        <!-- <div class = "container"> 
 
-        </div> -->
+        <div class = "container">
+            <div id = "chosenPokemon"></div>
+            <div id = "list2"></div>
+
+            <div id = "attackBox"></div>
+        </div>
         
         <script src = "assets/javascript/game.js"></script>
     </body>

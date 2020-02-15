@@ -49,13 +49,116 @@ body{
     display: none;
 }
 
-.container img{
+img.character{
     margin: 15px auto;
     display: inline-flex;
     height: 15vw;
 }
 
-#list{
+.container .red.animation:hover{
+    border: .1vw black solid;
+    background-image: linear-gradient(#E3453D, #FCA767);
+    height: 18vw;
+    border-radius: 5%;
+}
+
+.container .green.animation:hover{
+    border: .1vw black solid;
+    background-image: linear-gradient(#56921F, #68A198);
+    height: 18vw;
+    border-radius: 5%;
+}
+
+.container .blue.animation:hover{
+    border: .1vw black solid;
+    background-image: linear-gradient(#84CABF, #B4B6B7);
+    height: 18vw;
+    border-radius: 5%;
+}
+
+.container .yellow.animation:hover{
+    border: .1vw black solid;
+    background-image: linear-gradient(#FFF200, #9A0133);
+    border-radius: 5%;
+    height: 18vw;
+}
+
+#list, #list2{
+    display: flex;
+    margin: 15px auto;
+    flex-direction: column;
+    justify-content: left;
+    height: 15vw;
+    width: 35vw;
+    display: none;
+    font-family: 'Rubik', sans-serif;
+    font-size: 3vw;
+    font-weight: 800;
+    color: rgba(245, 245, 245, 0.856);
+}
+
+#chosenPokemon{
+    margin: 15px auto;
+    display: flex;
+    height: 15vw;
+    align-items: center;
+    justify-content: center;
+}
+
+#pokemon-div{
+    display: flex;
+    margin: 15px auto;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    height: 15vw;
+    width: 37vw;
+    display: none;
+    flex-wrap: wrap;
+}
+
+.nextPokemon.notAvailable{
+    display: none;
+}
+.nextPokemon.available{
+    max-width: 75%;
+    max-height: 75%;
+}
+
+.nextPokemon.available:hover{
+    border-radius: 25%;
+    border: .1vw rgb(255, 235, 156) solid;
+}
+
+.nextPokemon.available:active{
+    border-radius: 25%;
+    border: .1vw rgb(250, 250, 250) solid;
+}
+
+.subTitle{
+    text-align: center;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 2.5vw;
+    font-weight: 800;
+    color: #FFCC03;
+    -webkit-text-stroke-width: .1vw;
+    -webkit-text-stroke-color: #1F4079;
+    flex-basis: 100%;
+}
+
+#attackBox{
+    display: flex;
+    margin: 15px auto;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    height: 15vw;
+    width: 37vw;
+    display: none;
+    flex-wrap: wrap;
+}
+
+#attack{
     display: flex;
     margin: 15px auto;
     flex-direction: column;
@@ -68,32 +171,4 @@ body{
     font-weight: 400;
     -webkit-text-stroke-width: .015vw;
     -webkit-text-stroke-color: lightgray;
-}
-
-.container .red:hover{
-    border: .1vw black solid;
-    background-image: linear-gradient(#E3453D, #FCA767);
-    height: 18vw;
-    border-radius: 5%;
-}
-
-.container .green:hover{
-    border: .1vw black solid;
-    background-image: linear-gradient(#56921F, #68A198);
-    height: 18vw;
-    border-radius: 5%;
-}
-
-.container .blue:hover{
-    border: .1vw black solid;
-    background-image: linear-gradient(#84CABF, #B4B6B7);
-    height: 18vw;
-    border-radius: 5%;
-}
-
-.container .yellow:hover{
-    border: .1vw black solid;
-    background-image: linear-gradient(#FFF200, #9A0133);
-    border-radius: 5%;
-    height: 18vw;
 }
