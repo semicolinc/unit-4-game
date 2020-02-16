@@ -111,7 +111,6 @@ img.character{
     margin: 15px auto;
     align-items: center;
     justify-content: center;
-    overflow: auto;
     height: 15vw;
     width: 37vw;
     display: none;
