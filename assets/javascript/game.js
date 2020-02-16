@@ -227,6 +227,7 @@ $(document).ready(function main(){
                 Type2 = "Grass";
                 Health2 = "100";
                 DPS2 = "20";
+                $(".subTitle").css("display", "none");
             }
     
             $("#list2").css("display", "flex");
@@ -258,6 +259,7 @@ $(document).ready(function main(){
                 Type2 = "Water";
                 Health2 = "100";
                 DPS2 = "20";
+                $(".subTitle").css("display", "none");
             }
     
             $("#list2").css("display", "flex");
@@ -289,6 +291,7 @@ $(document).ready(function main(){
                 Type2 = "Fire";
                 Health2 = "100";
                 DPS2 = "20";
+                $(".subTitle").css("display", "none");
             }
 
             $("#list2").css("display", "flex");
@@ -320,6 +323,7 @@ $(document).ready(function main(){
                 Type2 = "Electric";
                 Health2 = "100";
                 DPS2 = "20";
+                $(".subTitle").css("display", "none");
             }
     
             $("#list2").css("display", "flex");
