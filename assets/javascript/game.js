@@ -24,6 +24,8 @@ $(document).ready(function main(){
     var etypeString = "";
     var attackString = Nickname+" used "+ typeString +". "+"It was "+youEffective+" effective. "+ Nickname + " did "+ youDamage + " damage.";
     var enemyAttackString = Nickname2+" used "+ etypeString +". "+"It was "+enemyEffective+" effective. "+ Nickname2 + " did "+ enemyDamage + " damage.";
+    var music = new Audio("assets/audio/battle.mp3");
+    var winMusic = new Audio("assets/audio/victory-music.mp3");
 
     function showStats(type){
         if (type == "statList"){
@@ -55,9 +57,16 @@ $(document).ready(function main(){
     }
 
     function playMusic(){
-        var music = new Audio("assets/audio/battle.mp3");
         music.loop = true;
+        music.pause(false);
         music.play();
+    }
+
+    function victoryMusic(){
+        music.pause();
+        winMusic.loop = true;
+        winMusic.play();
+        console.log("played");
     }
 
     function damage(Type, Type2){
@@ -246,7 +255,7 @@ $(document).ready(function main(){
 
             if(!($("#pokemon-div").children().hasClass("available"))){
                 Level2 = 5;
-                Type2 = "Grass";
+                Type2 = "Water";
                 Health2 = "100";
                 DPS2 = "20";
             }
@@ -345,7 +354,7 @@ $(document).ready(function main(){
             else if(Type === "Fire"){
                 typeString = "Ember";
             }
-            else{
+            else if(Type === "Electric"){
                 typeString = "Thundershock";
             }
             if(Type2 === "Grass"){
@@ -357,7 +366,7 @@ $(document).ready(function main(){
             else if(Type2 === "Fire"){
                 etypeString = "Ember";
             }
-            else{
+            else if (Type2 === "Electric"){
                 etypeString = "Thundershock";
             }
             updateStats("statList");
@@ -400,12 +409,15 @@ $(document).ready(function main(){
                 $("#title2").css("display", "none");
                 $("#title3").css("display", "block");
                 Health2 = 0;
+                $("#attack").removeClass("canPress");
+
+                victoryMusic();
                 updateStats("statList");
                 updateStats("statList2");
                 showStats("statList");
-                showStats("statList2");;
-    
-                alert("Congratulations! You are the champion! Refresh to play again.")
+                showStats("statList2");
+                console.log("hi");
+                alert("Congratulations! You are the champion! Refresh to play again.");
                 return;
             }
             else if(Health2 <= 0){
