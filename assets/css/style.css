@@ -3,6 +3,7 @@ font-family: 'Rubik', sans-serif; */
 body{
     background-image: url("../images/background.png");
     /* backdrop-filter: grayscale(90%); */
+    overflow-y: hidden;
 }
 .container{
     display: flex;
@@ -115,6 +116,7 @@ img.character{
     width: 37vw;
     display: none;
     flex-wrap: wrap;
+    overflow-y: hidden;
 }
 
 .nextPokemon.notAvailable{
